@@ -246,6 +246,6 @@ Always feel free to fork and contribute any changes directly here on [GitHub](ht
 ## Version
 |          Name            |  Version   |
 |--------------------------|------------|
-|Extension Version         |2.0.0       |
+|Extension Version         |2.0.1       |
 |Controller Compatibility  |3.7 or Later|
-|Last Update               |17 Apr 2018 |
+|Last Update               |22nd March 2019 |

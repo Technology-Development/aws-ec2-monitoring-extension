@@ -6,3 +6,6 @@
 3. Added dynamic metric collection in sync with CloudWatch monitoring level, Refer https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html
 4. Added include metrics and removed exclude metrics.
 5. Added time range configuration for individual metric
+
+## 2.0.1 - 22nd March, 2019
+1. Updated the aws-cloudwatch-exts-commons to 2.0.1.1 from 2.0.0
