@@ -12,7 +12,7 @@ resource "aws_instance" "aws_btd" {
    }
 
   #Reading the subnet_id from variables.tf
-  #subnet_id = "subnet-3c3bbb75"
+  subnet_id = "subnet-e02dc38b"
 
   #Security group
   #security_groups = ["sg-ccb3ebb"]
