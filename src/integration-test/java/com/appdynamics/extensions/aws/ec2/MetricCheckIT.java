@@ -66,8 +66,8 @@ public class MetricCheckIT {
             controllerInfoMap = Maps.newHashMap();
         }
         //this is for test purposes only
-        controllerInfoMap.put("controllerHost","localhost");
-        controllerInfoMap.put(ENCRYPTION_KEY, config.get(ENCRYPTION_KEY));
+        /*controllerInfoMap.put("controllerHost","localhost");
+        controllerInfoMap.put(ENCRYPTION_KEY, config.get(ENCRYPTION_KEY));*/
         try {
             ControllerInfo controllerInfo = ControllerInfoFactory.initialize(controllerInfoMap, new File("src/integration-test/resources/conf/"));
             logger.info("Initialized ControllerInfo");
