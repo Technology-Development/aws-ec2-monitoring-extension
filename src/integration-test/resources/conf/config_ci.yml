@@ -72,7 +72,7 @@ controllerInfo:
     controllerSslEnabled: false
     enableOrchestration: false
     uniqueHostId: ""
-    accountAccessKey: "${APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY}"
+    accountAccessKey: "SJ5b2m7d1$$354"
     machinePath: ""
     simEnabled: true
     applicationName: ""
