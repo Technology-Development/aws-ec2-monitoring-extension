@@ -13,7 +13,7 @@
 		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
 		<target.name>AWSEC2Monitor</target.name>
 		<target.dir>${project.build.directory}/${target.name}</target.dir>
-		<skipITs>true</skipITs>
+		<!--<skipITs>true</skipITs>-->
 	</properties>
 
 	<dependencies>
