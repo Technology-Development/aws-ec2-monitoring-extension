@@ -130,36 +130,6 @@ public class MetricCheckIT {
             Assert.assertTrue("Invalid metric values", awsAPICalls >= 0);
         }
 
-        /*CloseableHttpResponse httpResponse = sendGET(builder.build());
-
-        int statusCode = httpResponse.getStatusLine().getStatusCode();
-
-        Assert.assertEquals("Invalid response code", 200, statusCode);
-
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(
-                httpResponse.getEntity().getContent()));
-
-        String inputLine;
-        StringBuffer response = new StringBuffer();
-
-        while ((inputLine = reader.readLine()) != null) {
-            response.append(inputLine);
-        }
-        reader.close();
-
-
-        ObjectMapper mapper = new ObjectMapper();
-
-        JsonNode jsonNode = mapper.readTree(response.toString());
-
-        String metricName = jsonNode.get(0).get("metricName").getTextValue();
-        int metricValue = jsonNode.get(0).get("metricValues").get(0).get("current").getIntValue();
-
-        Assert.assertEquals("Valid metric name", "Custom Metrics|Amazon EC2|AWS API Calls", metricName);
-
-        Assert.assertTrue("Invalid metric value", metricValue >= 0);
-*/
     }
 
     /*@Test
