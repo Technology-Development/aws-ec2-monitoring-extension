@@ -132,49 +132,6 @@ public class MetricCheckIT {
 
     }
 
-    /*@Test
-    public void testCPUMetric() throws IOException {
-
-
-        UrlBuilder builder = UrlBuilder.builder();
-        builder.host(CONTROLLER_HOST).port(CONTROLLER_PORT).ssl(Boolean.valueOf(CONTROLLER_SSL_ENABLED)).path("controller/rest/applications/Server%20&%20Infrastructure%20Monitoring/metric-data");
-        builder.query("metric-path", "Application%20Infrastructure%20Performance%7CRoot%7CCustom%20Metrics%7CAmazon%20EC2%7CAppD%7Cus-west-2%7CInstance%7Cbtd-ec2%7CCPUUtilization");
-        builder.query("time-range-type", "BEFORE_NOW");
-        builder.query("duration-in-mins", "1");
-        builder.query("output", "JSON");
-
-        CloseableHttpResponse httpResponse = sendGET(builder.build());
-
-        int statusCode = httpResponse.getStatusLine().getStatusCode();
-
-        Assert.assertEquals("Invalid response code", 200, statusCode);
-
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(
-                httpResponse.getEntity().getContent()));
-
-        String inputLine;
-        StringBuffer response = new StringBuffer();
-
-        while ((inputLine = reader.readLine()) != null) {
-            response.append(inputLine);
-        }
-        reader.close();
-
-        ObjectMapper mapper = new ObjectMapper();
-
-        JsonNode jsonNode = mapper.readTree(response.toString());
-
-        String metricName = jsonNode.get(0).get("metricName").getTextValue();
-        int metricValue = jsonNode.get(0).get("metricValues").get(0).get("current").getIntValue();
-
-
-        Assert.assertEquals("Valid metric name", "Custom Metrics|Amazon EC2|AppD|us-west-2|Instance|btd-ec2|CPUUtilization", metricName);
-
-        Assert.assertTrue("Invalid metric value", metricValue >= 0);
-
-    }*/
-
     private CloseableHttpResponse sendGET(String url) throws IOException {
 
         HttpGet httpGet = new HttpGet(url);
