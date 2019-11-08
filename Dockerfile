@@ -1,6 +1,7 @@
 FROM dtr.corp.appdynamics.com/appdynamics/machine-agent:latest AS MA
 
 RUN apt-get update
+RUN sleep 60
 RUN apt-get -y install wget unzip
 
 RUN sleep 60
