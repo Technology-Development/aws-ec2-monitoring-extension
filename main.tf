@@ -7,9 +7,7 @@ provider "aws" {
 resource "aws_instance" "aws_btd" {
   ami = "ami-082b5a644766e0e6f"
   instance_type = "t2.micro"
-  tags {
-    Name = "btd-ec2"
-   }
+
 
   #Reading the subnet_id from variables.tf
   subnet_id = "subnet-e02dc38b"
