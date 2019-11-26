@@ -3,9 +3,9 @@ RUN apk add --no-cache openjdk8
 WORKDIR /opt/appdynamics/machine-agent
 COPY --from=dtr.corp.appdynamics.com/appdynamics/machine-agent /opt/appdynamics/machine-agent .
 
-RUN apt-get update
-RUN sleep 60
-RUN apt-get -y install wget unzip
+# RUN apt-get update
+# RUN sleep 60
+RUN RUN apk update && apk add wget unzip
 
 RUN sleep 60
 
