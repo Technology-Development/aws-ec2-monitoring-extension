@@ -5,7 +5,7 @@ COPY --from=dtr.corp.appdynamics.com/appdynamics/machine-agent /opt/appdynamics/
 
 # RUN apt-get update
 # RUN sleep 60
-RUN RUN apk update && apk add wget unzip
+RUN apk update && apk add wget unzip
 
 RUN sleep 60
 
