@@ -1,4 +1,7 @@
-FROM dtr.corp.appdynamics.com/appdynamics/machine-agent:latest AS MA
+FROM alpine:latest
+RUN apk add --no-cache openjdk8
+WORKDIR /opt/appdynamics/machine-agent
+COPY --from=dtr.corp.appdynamics.com/appdynamics/machine-agent /opt/appdynamics/machine-agent .
 
 RUN apt-get update
 RUN sleep 60
