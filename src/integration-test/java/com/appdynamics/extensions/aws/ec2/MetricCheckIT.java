@@ -40,7 +40,7 @@ public class MetricCheckIT {
     }
 
     @Test
-    public void whenInstanceIsUpThenHeartBeatIs1ForServerWithSSLDisabled() {
+    public void testAPICallsMetric() {
         JsonNode jsonNode = null;
         if (metricAPIService != null) {
             jsonNode = metricAPIService.getMetricData("",
