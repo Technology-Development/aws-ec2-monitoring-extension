@@ -6,8 +6,8 @@ metricPrefix: "Custom Metrics|Amazon EC2|"
 #metricPrefix: "Server|Component:<COMPONENT_ID>|Custom Metrics|Amazon EC2|"
 
 accounts:
-  - awsAccessKey: ""
-    awsSecretKey: ""
+  - awsAccessKey: "${AWS_ACCESS_KEY_ID}"
+    awsSecretKey: "${AWS_SECRET_ACCESS_KEY}"
     displayAccountName: "AppD"
 
     # Regions where ec2 is registered
@@ -60,6 +60,24 @@ regionEndPoints:
   us-west-1: monitoring.us-west-1.amazonaws.com
   us-west-2: monitoring.us-west-2.amazonaws.com
   sa-east-1: monitoring.sa-east-1.amazonaws.com
+
+controllerInfo:
+    controllerHost: "controller"
+    controllerPort: 8080
+    account: "customer1"
+    username: "user1"
+    password: "welcome"
+    encryptedPassword: ""
+    encryptionKey: ""
+    controllerSslEnabled: false
+    enableOrchestration: false
+    uniqueHostId: ""
+    accountAccessKey: "SJ5b2m7d1$$354"
+    machinePath: ""
+    simEnabled: true
+    applicationName: ""
+    tierName: ""
+    nodeName: ""
 
 # Global metrics config for all accounts
 metricsConfig:
