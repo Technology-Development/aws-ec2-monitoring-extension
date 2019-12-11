@@ -14,7 +14,7 @@ ADD target/AWSEC2Monitor-*.zip /opt/appdynamics/machine-agent/monitors
 RUN unzip -q "/opt/appdynamics/machine-agent/monitors/AWSEC2Monitor-*.zip" -d /opt/appdynamics/machine-agent/monitors
 RUN find /opt/appdynamics/machine-agent/monitors -name '*.zip' -delete
 
-COPY src/integration-test/resources/conf/config_ci.yml monitors/CassandraMonitor/config.yml
+COPY src/integration-test/resources/conf/config_ci.yml monitors/AWSEC2Monitor/config.yml
 # enable debug logging
 RUN sed -i '1,/sigar/ s/info/debug/' conf/logging/log4j.xml
 
