@@ -44,7 +44,7 @@ public class MetricCheckIT {
         JsonNode jsonNode = null;
         if (metricAPIService != null) {
             jsonNode = metricAPIService.getMetricData("",
-                    "Server%20&%20Infrastructure%20Monitoring/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRoot%7CCustom%20Metrics%7CAmazon%7CEC2%7CAppD%7CAWS%20API%20Calls&time-range-type=BEFORE_NOW&duration-in-mins=15&output=JSON");
+                    "Server%20&%20Infrastructure%20Monitoring/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRoot%7CCustom%20Metrics%7CAmazon%20EC2%7CAWS%20API%20Calls&time-range-type=BEFORE_NOW&duration-in-mins=15&output=JSON");
         }
         Assert.assertNotNull("Cannot connect to controller API", jsonNode);
         if (jsonNode != null) {
