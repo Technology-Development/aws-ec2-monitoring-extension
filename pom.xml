@@ -25,12 +25,12 @@
 		<dependency>
 			<groupId>com.appdynamics.extensions</groupId>
 			<artifactId>aws-cloudwatch-exts-commons</artifactId>
-			<version>2.0.1.1</version>
+			<version>2.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-java-sdk-ec2</artifactId>
-			<version>1.10.0</version>
+			<version>1.11.642</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -167,14 +167,13 @@
 					<tag>${project.artifactId}-${project.version}</tag>
 				</configuration>
 			</plugin>
-
 			<plugin>
 				<groupId>com.appdynamics.maven.plugin</groupId>
 				<artifactId>yaml-validate-maven-plugin</artifactId>
 				<version>1.0</version>
 
 				<configuration>
-						<yamlPath>src/main/resources/conf/config.yml</yamlPath>
+					<yamlPath>src/main/resources/conf/config.yml</yamlPath>
 				</configuration>
 
 				<executions>
@@ -186,6 +185,7 @@
 					</execution>
 				</executions>
 			</plugin>
+
 		</plugins>
 	</build>
 	
