@@ -1,5 +1,5 @@
 provider "aws" {
-  region     = "us-west-2"
+  region     = "eu-central-1"
   access_key = "${var.AWS_ACCESS_KEY}"
   secret_key = "${var.AWS_SECRET_KEY}"
 }
@@ -10,7 +10,7 @@ resource "aws_instance" "aws_btd" {
 
 
   #Reading the subnet_id from variables.tf
-  subnet_id = "subnet-e02dc38b"
+  subnet_id = "subnet-55f7f62d"
 
   #Security group
   #security_groups = ["sg-ccb3ebb"]
