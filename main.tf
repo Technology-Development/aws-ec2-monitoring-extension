@@ -5,7 +5,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "aws_btd" {
-  ami = "ami-082b5a644766e0e6f"
+  ami = "ami-07cda0db070313c52"
   instance_type = "t2.micro"
-  security_groups   = ["${aws_security_group.extensions-buildAgents.id}"]
+  #security_groups   = ["extensions-buildAgents"]
 }
