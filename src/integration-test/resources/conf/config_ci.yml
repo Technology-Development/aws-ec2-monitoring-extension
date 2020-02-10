@@ -6,8 +6,8 @@ metricPrefix: "Custom Metrics|Amazon EC2|"
 #metricPrefix: "Server|Component:<COMPONENT_ID>|Custom Metrics|Amazon EC2|"
 
 accounts:
-  - awsAccessKey: "${AWS_ACCESS_KEY_ID}"
-    awsSecretKey: "${AWS_SECRET_ACCESS_KEY}"
+  - awsAccessKey: "${EXT_AWS_ACCESS_KEY}"
+    awsSecretKey: "${EXT_AWS_SECRET_KEY}"
     displayAccountName: "AppD"
 
     # Regions where ec2 is registered

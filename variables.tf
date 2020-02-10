@@ -7,8 +7,8 @@ variable "aws_btd_security_group" {
 }
 
 
-variable "AWS_ACCESS_KEY"{
+variable "EXT_AWS_ACCESS_KEY"{
 }
 
-variable "AWS_SECRET_KEY"{
+variable "EXT_AWS_SECRET_KEY"{
 }
