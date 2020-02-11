@@ -47,26 +47,16 @@ public class MetricCheckIT {
     @Test
     public void testAPICallsMetric() {
         JsonNode jsonNode = null;
-        try {
-            if (metricAPIService != null) {
-                jsonNode = metricAPIService.getMetricData("",
-                        "Server%20&%20Infrastructure%20Monitoring/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRoot%7CCustom%20Metrics%7CAmazon%20EC2%7CAWS%20API%20Calls&time-range-type=BEFORE_NOW&duration-in-mins=15&output=JSON");
-            }
-                Assert.assertNotNull("Cannot connect to controller API", jsonNode);
-                if (jsonNode != null) {
-                    JsonNode valueNode = JsonUtils.getNestedObject(jsonNode, "*", "metricValues", "*", "value");
-                    try{
-                    Assert.assertTrue(jsonNode.toString(), false);
-                    }catch(AssertionError e){
-                        System.out.println("Assert error: " + e);
-                    }
-                    int heartBeat = (valueNode == null) ? 0 : valueNode.get(0).asInt();
-                    Assert.assertEquals("heartbeat is 0", 0, heartBeat);
-                }
-
-        }catch(Exception e ){
-            System.out.println(e);
+        if (metricAPIService != null) {
+            jsonNode = metricAPIService.getMetricData("",
+                    "Server%20&%20Infrastructure%20Monitoring/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRoot%7CCustom%20Metrics%7CAmazon%20EC2%7CAWS%20API%20Calls&time-range-type=BEFORE_NOW&duration-in-mins=15&output=JSON");
         }
+        Assert.assertNotNull("Cannot connect to controller API", jsonNode);
+        if (jsonNode != null) {
+            String valueNode = JsonUtils.getTextValue(jsonNode, "metricId");
+            Assert.assertTrue("AWS API Calls", Integer.parseInt(valueNode) > 0);
+        }
+
     }
 
 
