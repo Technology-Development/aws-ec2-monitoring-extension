@@ -52,10 +52,15 @@ public class MetricCheckIT {
                     "Server%20&%20Infrastructure%20Monitoring/metric-data?metric-path=Application%20Infrastructure%20Performance%7CRoot%7CCustom%20Metrics%7CAmazon%20EC2%7CAWS%20API%20Calls&time-range-type=BEFORE_NOW&duration-in-mins=15&output=JSON");
         }
         Assert.assertNotNull("Cannot connect to controller API", jsonNode);
-        if (jsonNode != null) {
-            String valueNode = JsonUtils.getTextValue(jsonNode, "metricId");
-            Assert.assertTrue("AWS API Calls", Integer.parseInt(valueNode) > 0);
+        // Keeping this for beugging purpose
+        try {
+            Assert.assertTrue(jsonNode.toString(), false);
+        } catch (AssertionError e) {
+            // Dummy echo output
+            System.out.println("Assert error: " + e);
         }
+        String valueNode = JsonUtils.getTextValue(jsonNode, "metricId");
+        Assert.assertTrue("AWS API Calls", Integer.parseInt(valueNode) > 0);
 
     }
 
