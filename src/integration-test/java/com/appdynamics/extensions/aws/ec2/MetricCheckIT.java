@@ -55,12 +55,12 @@ public class MetricCheckIT {
         // Keeping this for beugging purpose
         try {
             Assert.assertTrue(jsonNode.toString(), false);
-        } catch (AssertionError e) {
+        } catch (AssertionError | Exception e) {
             // Dummy echo output
             System.out.println("Assert error: " + e);
         }
-        String valueNode = JsonUtils.getTextValue(jsonNode, "metricId");
-        Assert.assertTrue("AWS API Calls", Integer.parseInt(valueNode) > 0);
+        JsonNode valueNode = JsonUtils.getNestedObject(jsonNode, "*", "metricId");
+        Assert.assertTrue("AWS API Calls", valueNode.get(0).getIntValue() > 0);
 
     }
 
