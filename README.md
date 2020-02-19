@@ -27,7 +27,7 @@ Please place the extension in the "**monitors**" directory of your Machine Agent
 
 In order to use the extension, you need to update the config.yml file that is present in the extension folder. The following is an explanation of the configurable fields that are present in the config.yml file.
 
-### config.yaml
+### config.yml
 
 **Note: Please avoid using tab (\t) when editing yaml files. You may want to validate the yaml file using a [yaml validator](http://yamllint.com/).**
 

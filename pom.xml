@@ -2,17 +2,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.appdynamics.extensions</groupId>
 	<artifactId>aws-ec2-monitoring-extension</artifactId>
-	<version>2.0.1</version>
+	<version>2.1.0</version>
 	<packaging>jar</packaging>
-
 	<name>aws-ec2-monitoring-extension</name>
-	<url>http://maven.apache.org</url>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
 		<target.name>AWSEC2Monitor</target.name>
 		<target.dir>${project.build.directory}/${target.name}</target.dir>
+		<skipITs>true</skipITs>
 	</properties>
 
 	<dependencies>
@@ -25,12 +24,12 @@
 		<dependency>
 			<groupId>com.appdynamics.extensions</groupId>
 			<artifactId>aws-cloudwatch-exts-commons</artifactId>
-			<version>2.0.1.1</version>
+			<version>2.2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-java-sdk-ec2</artifactId>
-			<version>1.10.0</version>
+			<version>1.11.642</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -133,7 +132,7 @@
 									<fileset dir="${project.basedir}" includes="NOTICE.txt" />
 								</copy>
 								<copy todir="${target.dir}">
-									<fileset dir="${build.directory}" includes="${project.artifactId}.${project.packaging}" />
+									<fileset dir="${project.build.directory}" includes="${project.artifactId}.${project.packaging}" />
 								</copy>
 								<zip destfile="${target.dir}-${project.version}.zip">
 									<zipfileset dir="${target.dir}" filemode="755" prefix="${target.name}/" />
@@ -143,6 +142,26 @@
 						</configuration>
 						<goals>
 							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>2.1</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.22.0</version>
+				<configuration>
+					<skipITs>${skipITs}</skipITs>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
 						</goals>
 					</execution>
 				</executions>
@@ -157,8 +176,22 @@
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
-				<version>2.1</version>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>add-integration-test-source</id>
+						<phase>generate-test-sources</phase>
+						<goals>
+							<goal>add-test-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/integration-test/java</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-scm-plugin</artifactId>
@@ -170,7 +203,6 @@
 
 		</plugins>
 	</build>
-	
 	<repositories>
 		<repository>
 			<id>github-maven-repo</id>
