@@ -28,10 +28,11 @@ import com.appdynamics.extensions.aws.ec2.config.Ec2InstanceNameConfig;
 import com.appdynamics.extensions.aws.ec2.config.Tag;
 import com.appdynamics.extensions.executorservice.MonitorExecutorService;
 import com.appdynamics.extensions.executorservice.MonitorThreadPoolExecutor;
+import com.appdynamics.extensions.logging.ExtensionsLoggerFactory;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
-import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +53,7 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class EC2InstanceNameProvider {
 
-    private static final Logger LOGGER = Logger.getLogger(EC2InstanceNameProvider.class);
+    private static final Logger LOGGER = ExtensionsLoggerFactory.getLogger(EC2InstanceNameProvider.class);
 
     private AtomicReference<List<Account>> accounts = new AtomicReference<List<Account>>();
 
