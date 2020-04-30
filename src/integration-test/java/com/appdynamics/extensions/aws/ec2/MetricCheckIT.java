@@ -3,12 +3,9 @@ package com.appdynamics.extensions.aws.ec2;
 import com.appdynamics.extensions.controller.apiservices.MetricAPIService;
 import com.appdynamics.extensions.logging.ExtensionsLoggerFactory;
 import com.appdynamics.extensions.util.JsonUtils;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonToken;
-import org.codehaus.jackson.annotate.JsonValue;
-import org.codehaus.jackson.map.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -60,7 +57,7 @@ public class MetricCheckIT {
             System.out.println("Assert error: " + e);
         }
         JsonNode valueNode = JsonUtils.getNestedObject(jsonNode, "*", "metricId");
-        Assert.assertTrue("AWS API Calls", valueNode.get(0).getIntValue() > 0);
+        Assert.assertTrue("AWS API Calls", valueNode.get(0).intValue() > 0);
 
     }
 
