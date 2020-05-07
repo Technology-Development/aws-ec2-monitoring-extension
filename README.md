@@ -246,6 +246,7 @@ Always feel free to fork and contribute any changes directly here on [GitHub](ht
 ## Version
 |          Name            |  Version   |
 |--------------------------|------------|
-|Extension Version         |2.0.1       |
+|Extension Version         |2.1.3       |
 |Controller Compatibility  |3.7 or Later|
-|Last Update               |22nd March 2019 |
+|Machine Agent Version     |4.5.13+     |
+|Last Update               |7th May 2019|
