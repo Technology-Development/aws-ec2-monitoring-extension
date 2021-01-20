@@ -15,14 +15,20 @@ import com.appdynamics.extensions.aws.collectors.NamespaceMetricStatisticsCollec
 import com.appdynamics.extensions.aws.ec2.config.EC2Configuration;
 import com.appdynamics.extensions.aws.ec2.providers.EC2InstanceNameProvider;
 import com.appdynamics.extensions.aws.metric.processors.MetricsProcessor;
-import org.apache.log4j.Logger;
+import com.appdynamics.extensions.logging.ExtensionsLoggerFactory;
+import org.slf4j.Logger;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Florencio Sarmiento
  */
 public class EC2Monitor extends SingleNamespaceCloudwatchMonitor<EC2Configuration> {
 
-    private static final Logger LOGGER = Logger.getLogger(EC2Monitor.class);
+    private static final Logger LOGGER = ExtensionsLoggerFactory.getLogger(EC2Monitor.class);
 
     private static final String DEFAULT_METRIC_PREFIX = String.format("%s%s%s%s",
             "Custom Metrics", METRIC_PATH_SEPARATOR, "Amazon EC2", METRIC_PATH_SEPARATOR);
@@ -53,8 +59,8 @@ public class EC2Monitor extends SingleNamespaceCloudwatchMonitor<EC2Configuratio
     }
 
     @Override
-    protected int getTaskCount() {
-        return 3;
+    protected List<Map<String, ?>> getServers() {
+        return new ArrayList<Map<String, ?>>();
     }
 
     @Override
