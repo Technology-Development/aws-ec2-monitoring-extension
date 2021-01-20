@@ -15,3 +15,6 @@
 
 ## 2.1.3 - 7th May, 2020
 1. Updated the aws-cloudwatch-exts-commons to 2.2.3.1
+
+## 2.1.4 - 19th Jan, 2021
+1. Updated the aws-cloudwatch-exts-commons to 2.2.4
